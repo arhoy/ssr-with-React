@@ -6,8 +6,8 @@ const app = express();
 // make public directory available "publicly"
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  res.send(renderer());
+app.get('*', (req, res) => {
+  res.send(renderer(req));
 });
 
 app.listen(3000, () => {
