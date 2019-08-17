@@ -1,11 +1,34 @@
 import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchUsers } from '../actions';
 
-const UsersList = () => {
+const UsersList = ({ users, fetchUsers }) => {
   useEffect(() => {
-    // Update the document title using the browser API
-    document.title = `User list `;
-  });
-  return <div>TYhis is user list</div>;
+    fetchUsers();
+  }, [fetchUsers]);
+
+  const renderUsers = () => (
+    <ul>
+      {users.map(user => (
+        <li key={user.id}> {user.name} </li>
+      ))}
+    </ul>
+  );
+
+  return <div> {renderUsers()}</div>;
 };
 
-export default UsersList;
+const mapStateToProps = state => ({
+  users: state.users
+});
+
+const loadData = store => {
+  return store.dispatch(fetchUsers());
+};
+
+export { loadData };
+
+export default connect(
+  mapStateToProps,
+  { fetchUsers }
+)(UsersList);

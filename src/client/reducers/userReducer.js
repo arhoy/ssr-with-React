@@ -1,18 +1,10 @@
-import { FETCH_USERS } from '../actions/types';
+import { FETCH_USERS } from '../actions';
 
-const initialState = {
-  users: []
-};
-
-export default function(state = initialState, action) {
-  const { type, payload } = action;
-  switch (type) {
+export default (state = [], action) => {
+  switch (action.type) {
     case FETCH_USERS:
-      return {
-        ...state,
-        users: payload
-      };
+      return action.payload.data;
     default:
       return state;
   }
-}
+};
