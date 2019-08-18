@@ -2,16 +2,9 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div className="red">
-      The HOME page
-      <button className="btn btn-red" onClick={() => console.log('Hi there!')}>
-        Press me now!
-      </button>
-      <style>{`
-        .red {
-          color:red
-        }
-      `}</style>
+    <div className="center-align" style={{ marginTop: '200px' }}>
+      <h3>Welcome</h3>
+      <p>SSR with React. Start Today</p>
     </div>
   );
 };
