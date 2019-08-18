@@ -12,7 +12,13 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import Routes from './Routes';
 import reducers from './reducers';
-const store = createStore(reducers, {}, applyMiddleware(thunk));
+import history from '../helpers/history';
+
+const store = createStore(
+  reducers,
+  window.INITIAL_STATE,
+  applyMiddleware(thunk)
+);
 
 // must render the app into the same div that was rendered in the browser.
 // "breathing life into the skeleton component" by setting up the event listeners and such

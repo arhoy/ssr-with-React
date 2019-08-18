@@ -1,10 +1,9 @@
 import React from 'react';
-import UsersList from './UsersList';
 
 const Home = () => {
   return (
     <div className="red">
-      The HOME component
+      The HOME page
       <button className="btn btn-red" onClick={() => console.log('Hi there!')}>
         Press me now!
       </button>
@@ -16,4 +15,6 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+export default {
+  component: Home
+};

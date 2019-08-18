@@ -25,7 +25,7 @@ app.get('*', (req, res) => {
       .then(() => {
         res.send(renderer(req, store));
       })
-      .catch(err => console.log('There an error was'));
+      .catch(err => console.log(`Error in index.js, ${err}`));
   }
 });
 
